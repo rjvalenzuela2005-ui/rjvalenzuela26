@@ -9,9 +9,11 @@ connectDB();
 
 const app = express();
 
-// CORS — allow the React dev server and production client
-const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
-app.use(cors({ origin: [clientUrl, 'http://localhost:5173', 'http://127.0.0.1:5173'], credentials: true }));
+// CORS — allow the React dev server and production client (including Vercel)
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
