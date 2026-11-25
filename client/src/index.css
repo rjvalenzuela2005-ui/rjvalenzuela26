@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-midnight text-white font-body;
+    background: linear-gradient(180deg, #030B1A 0%, #06182B 100%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #030B1A; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#2563EB, #22D3EE);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: linear-gradient(#22D3EE, #2DD4BF); }
+}
+
+@layer utilities {
+  /* Gradient text — blue → cyan → mint */
+  .gradient-text {
+    background: linear-gradient(135deg, #2563EB, #22D3EE, #2DD4BF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glassmorphism card */
+  .glass-card {
+    background: rgba(8, 20, 40, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(34, 211, 238, 0.12);
+    border-radius: 1rem;
+  }
+
+  /* Neon glows */
+  .neon-glow-cyan {
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.35), 0 0 50px rgba(34, 211, 238, 0.12);
+  }
+  .neon-glow-blue {
+    box-shadow: 0 0 18px rgba(37, 99, 235, 0.35), 0 0 50px rgba(37, 99, 235, 0.12);
+  }
+  .neon-glow-mint {
+    box-shadow: 0 0 18px rgba(45, 212, 191, 0.35), 0 0 50px rgba(45, 212, 191, 0.12);
+  }
+
+  /* Primary pill button */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #2563EB, #22D3EE);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.28);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 32px rgba(34, 211, 238, 0.55);
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  /* Gradient animated border ring */
+  .gradient-border-ring {
+    background: linear-gradient(135deg, #2563EB, #22D3EE, #2DD4BF);
+    padding: 2px;
+    border-radius: 1rem;
+  }
+  .gradient-border-ring > * {
+    border-radius: calc(1rem - 2px);
+  }
+
+  /* Faint background grid */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
